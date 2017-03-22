@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>¡Bienvenido a la página accesible!</title>
+        <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    </head>
+    <body>
+        <h1>Esto es una página accesible</h1>
+        <p>Quiere decir que en esta página todo el contenido es
+        accesible: sus imágenes, enlaces, y demás elementos.</p>
+        <hr>
+        
+        <img src="img/ull_logo.png" longdesc="Logo de la Universidad de La Laguna" alt="Universidad de La Laguna" height=100px></img>
+        
+        <h3>Uso de gráficos mediante ASCII</h3>
+        <p>Existen gráficos que los usuarios de lectores de pantalla no pueden apreciar
+        debido a que están representados en mapas de bits. Para ello, se utilizan este
+        tipo de gráficos: </p>
+        <table width="95%">
+            <tr>
+                <td align="left">
+                    <pre align="left">
+                              ASCII-art graph
+                            C  40-|         o 
+                            o  30-|     o o
+                            s  20-|  o o
+                            t  20-| o
+                                   ------------
+                                    '  '  '  '
+                                    1  2  3  4
+                                      Time
+                    </pre>
+                </td>
+                <td align="right">
+                    <p>Imagen de mapa de bits</p>
+                    <img src="https://www.w3.org/WAI/wcag-curric/img/graph2.gif" alt="Graph of Cost versus Time" align="RIGHT" border="0"/>
+                </td>
+            </tr>
+        </table>
+        
+        <p>También podemos usar el arte ASCII para imágenes simples que no 
+        tengan importancia en la página, por ejemplo:</p>
+        <pre>
+            MMMMMMMM
+        WWWWW      WWWWW
+       ******************
+          | \O/ \O/ |
+          |    |    |
+          \         /
+           \  ---  /
+             VVVVV
+              VVV
+        </pre>
+        
+        <h3>Texto equivalente para scripts</h3>
+        <p>Es recomendable proveer una descripción alternativa en formato texto 
+        para describir la funcionalidad del script.</p>
+        <p id="demo">¿Y si cambiamos este texto...?</p>
+        <button type="button" onclick="mifuncion()">¡Cambiar!</button>
+        <script type="text/javascript">
+            function mifuncion(){
+                document.getElementById("demo").innerHTML = "¡Ha cambiado!";
+            }
+        </script>
+        <noscript>
+            Este script cambia el contenido del parrafo por otro.
+        </noscript>
+        
+        <h3>Proveer una descripción para imágenes usadas en listas.</h3>
+        <p>Si por ejemplo tenemos la siguiente lista, es recomendable 
+        documentar las imágenes que usemos como punto para el elemento "li":</p>
+        <ul>
+            <img src="https://www.w3.org/WAI/wcag-curric/img/blueball.gif" alt="Punto azul"/>Hola<br>
+            <img src="https://www.w3.org/WAI/wcag-curric/img/blueball.gif" alt="Punto azul"/>¿Qué tal?<br>
+        </ul>
+        
+        <h3>Texto equivalente para imágenes usadas como "espaciadores"</h3>
+        <p>Hay veces que nos interesa usar imágenes <img src="https://www.w3.org/WAI/wcag-curric/img/alt.gif" hspace="30" vspace="0" alt="Imagen de espacio"/>
+        para poner un espacio en blanco, aunque se prefiere usar una hoja de estilo para este
+        tipo de cosas.</p>
+
+        <h3>Texto equivalente para sonidos (reproducidos por acción del usuario o no)</h3>
+        <script>
+            function playaudio(){
+                var audio = document.getElementById("audio");
+                audio.play();
+                alert("Se ha pulsado el boton.");
+            }
+        </script>
+        <p>Si añadimos una descripción de algún sonido (como por ejemplo, de uno que haga
+        Oh-oh! cuando se intente enviar un formulario incompleto), estaremos ayudando bastante.</p>
+        <button type="button" onclick="playaudio()">Pruébame</button>
+        <audio id="audio" src="https://www.w3.org/WAI/wcag-curric/multi/error.wav"></audio>
+        
+        <h3>Texto equivalente para audios aislados</h3>
+        <p>Muchas veces es necesario agregar una descripción de un archivo de audio 
+        si este es de corta duración. Si su duración es larga, entonces se debería 
+        proveer un link a otro fichero que explique el audio.</p>
+        <audio src="https://www.w3.org/WAI/wcag-curric/multi/work-e.wav" id="audio2" alt="Audio que dice: 'Let's work together for accesibility' "></audio>
+        <a href="javascript:void(0)" onclick="playaudio2()">Reproducir audio</a>
+        <script>
+            function playaudio2(){
+                var audio2 = document.getElementById("audio2");
+                audio2.play();
+            }
+        </script>
+        
+        <h3>Subtítulos en vídeos</h3>
+        <p>Es importante que las pistas de audio de los vídeos vengan con una transcripción a texto, y la mejor
+        forma de ello es que el vídeo incorpore subtítulos: </p>
+        <video width="320" height="240" controls>
+            <source src="https://www.abercap.com/build/media/samples/Subtitle_Movie_English.mp4" type="video/mp4">
+        </video>
+        
+        <h3>Texto equivalente para un vídeo</h3>
+        <p>Esto consistiría en proveer una descripción completa del vídeo: tanto de
+        las esceneas, como de los diálogos, textos, etc.
+        <a href="https://www.w3.org/WAI/wcag-curric/catch.htm">En este enlace</a>
+        se puede ver la descripción entera de un vídeo.</p>
+        
+        <h3>Descripción de audio para una galería imágenes</h3>
+        <p>Hasta que los lectores de pantalla puedan ofrecer una descripción auditiva 
+        de una galeria de imágenes, es importante dotar la página de un audio descriptivo
+        que vaya detallando cada imagen y de esta forma hacer que el usuario obtenga una 
+        idea del contenido de la imagen.</p>
+        
+        <h3>Sincronizar alternativas de texto con la presentación</h3>
+        <p>En ocasiones, cuando el espectador este viendo una película o vídeo 
+        no es cómodo tener que ira un enlace externo a leer la transcripción a texto
+        para saber de qué trata dicho recurso. Por ello, es mucho más cómodo para el usuario
+        que la transcripción a texto vaya apareciendo en tiempo real junto con los fotogramas
+        del vídeo.</p>
+        
+        <h3>Poner los enlaces que tienen los mapas de imágenes explícitamente</h3>
+        <p>Puede que no sea suficiente especificar el campo "alt" en una imagen, por
+        tanto, es recomendable poner los links de los mapas de imágenes explicitamente:</p>
+        <IMG SRC="https://www.w3.org/WAI/wcag-curric/img/imgmap2.gif" ALT="Image map: please use the alternative links provided with the map. Not all browsers will show this at this time." TITLE="Various icons relating to disability"  USEMAP="#map1" BORDER=0><BR><BR>
+        [ <A HREF="https://www.w3.org/WAI/wcag-curric/a.htm">Seccion A</A> | <A HREF="https://www.w3.org/WAI/wcag-curric/b.htm">Seccion B</A> | <A HREF="https://www.w3.org/WAI/wcag-curric/c.htm">Seccion C</A> | <A HREF="https://www.w3.org/WAI/wcag-curric/d.htm">Seccion D</A> ]</div>
+          <MAP NAME="map1">
+          <AREA COORDS="0,0,39,39" HREF="https://www.w3.org/WAI/wcag-curric/a.htm" ALT="Link to section A of the site. ">
+          <AREA COORDS="40,0,79,39" HREF="https://www.w3.org/WAI/wcag-curric/b.htm" ALT="Link to section B of the site. "> 
+          <AREA COORDS="80,0,120,39" HREF="https://www.w3.org/WAI/wcag-curric/c.htm" ALT="Link to section C of the site. "> 
+          <AREA COORDS="121,0,160,39" HREF="https://www.w3.org/WAI/wcag-curric/d.htm" ALT="Link to section D of the site. "> 
+          </MAP>
+        <BR>
+         
+        <h3>Usar los colores adecuadamente para enfatizar, así como listas ordenadas</h3>   
+        <p>Un orden de preferencia debe ser indicado mediante colores, y para aquellas
+        personas que no los puedan apreciar bien, se usarán listas ordenadas.</p>
+        <ol>
+            <li style="color:#0000ff"><p style="color:#0000ff">Una cosa</p></p></li>
+            <li style="color:#ff0000"><p style="color:#ff0000">Otra cosa</p></li>
+        </ol>
+            
+        <h3>Contraste suficiente</h3>
+        <p>Asegurarse de que el contraste entre el color de la letra  y el del fondo sea suficiente
+        para que las personas con dificultades a la hora de difrenecias colores no tengan problemas.</p>
+        <img src="https://www.w3.org/WAI/wcag-curric/img/contrast1.gif">    
+        
+        <h3>Lenguajes markup antes que imágenes</h3>
+        <p>Si existe un lenguaje markup para expresar información que normalmente
+        expresaríamos mediante una imagen, es imprescindible usarlo, pues el código
+        se podrá entender fácilmente. Por ejemplo, MathML facilita la escritura de 
+        expresiones matemáticas.</p>
+        <a href="https://www.w3.org/WAI/wcag-curric/mathml.htm"><img src="https://www.w3.org/WAI/wcag-curric/img/eq2_4.gif"></a>
+        
+        <h3>Ofrecer en la cabecera del documento html el idioma usado en la página</h3>
+        <pre>
+            !DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 5.0 Transitional//ES"
+        </pre>
+        
+        <h3>Usar hojas de estilos</h3>
+        <p>Los atributos de HTML para dar estilo a las fuentes y demás elementos ya
+        quedaron obsoletos, por lo que es una buena práctica utilizar hojas de estilos como
+        las que usará esta página.</p>
+        
+        <h3>Usar medidas relativas más que absolutas</h3>
+        <p>Por ejemplo, en CSS, se debería usar "em" como unidad medida, y no "cm" o "pt"
+        que puede que hagan que el contenido no se redimensione bien en diferentes navegadores.</p>
+        
+        <h3>Utilizar los tamaños de encabezado adecuados para el contenido de la página</h3>
+        <p>Por ejemplo, usar un h1 <h1>Para el título</h1> un h2 para <h2>Un subtítulo</h2> y así
+        sucesivamente.</p>
+        
+        <h3>Usar las listas correctamente</h3>
+        <p>Los elementos de lista OL y UL han de ser usados correctamente (como se ha hecho 
+        varias veces en esta página), y no para conseguir sangrías o indentaciones en el texto.</p>
+        
+        <h3>Uso de las etiquetas Q y BLOCKQUOTE</h3>
+        <p>Estas etiquetas han de ser utilizadas únicamente para citas, y no para indentar texto.</p>
+        <blockquote lang="en-us">Las comillas se ponen solas!</blockquote>
+        <p>Para indentar texto, podemos usar las propiedades CSS de "margin-left" y derivadas.</p>
+        
+        <h3>Identificar claramente los cambios de idioma en una página</h3>
+        <p>Si vamos a usar un lenguaje distinto algún punto de la página, es conveniente
+        indicarlo.</p>
+        <span lang="fr">Bonjour!</span>
+        
+        <h3>Especificar el significado de las abreviaciones y siglas</h3>
+        <p>Es importante incluir el significado de las siglas mediante la etiqueta ACRONYM
+        y ABBR de HTML.</p>
+        <span>Recuerde traer el <acronym title="Documento Nacional de Identidad">DNI</acronym></span>
+        
+        <h3>Especificar el lenguaje del documento en la etiqueta HTML</h3>
+        Esto es importante para la accesibilidad.
+        
+        <h3>Indicar el nombre de columnas y filas en tablas</h3>
+        <p>Por ejemplo:</p>
+        <TABLE border=1>
+            <CAPTION>Ejemplo de una tabla simple</CAPTION>
+            <TR><TD></TD><TH>Columna 1</TH><TH>Columna 2</TH></TR>
+            <TR><TH>Fila 1</TH><TD>1,1</TD><TD>2,1</TD></TR>
+            <TR><TH>Fila 2 </TH><TD>1,2</TD><TD>2,2</TD></TR>
+        </TABLE>
+
+        <h3>Identificar bien las divisiones en una tabla</h3>
+        <p>En tablas que tengan varias filas y columas, se deberían indicar las divisiones
+        para mejorar su apariencia.</p>
+        <TABLE BORDER="1" CELLPADDING=2 CELLSPACING=3>
+            <CAPTION>Example 1: TRAVEL EXPENSES (actual cost, US$)</CAPTION>
+            <THEAD>
+              <TR>
+                <TH><P><SPAN ID="t1-r1-l1">TRIP</SPAN>,<BR><SPAN ID="t1-r1-l2">&nbsp;date</SPAN></P></TH>
+                <TH SCOPE="col">Meals</TH>
+                <TH SCOPE="col">Room</TH>
+                <TH SCOPE="col"><ABBR title="Transportation">Trans.</ABBR></TH>
+                <TH SCOPE="col">Total</TH>
+              </TR>
+            </THEAD>
+            <TBODY>
+              <TR>
+                <TH SCOPE="rowgroup" HEADERS="t1-r1-l1">San Jose</TH>
+              </TR>
+              <TR>
+                <TD SCOPE="row" HEADERS="t1-r1-l2">&nbsp;25 Aug 97</TD>
+                <TD>37.74</TD>
+                <TD>112.00</TD>
+                <TD>45.00</TD>
+              </TR>
+              <TR>
+                <TD SCOPE="row" HEADERS="t1-r1-l2">&nbsp;26 Aug 97</TD>
+                <TD>27.28</TD>
+                <TD>112.00</TD>
+                <TD>45.00</TD>
+              </TR>
+              <TR>
+                <TD SCOPE="row">Subtotal</TD>
+                <TD>65.02</TD>
+                <TD>224.00</TD>
+                <TD>90.00</TD>
+                <TD>379.02</TD>
+              </TR>
+            </TBODY>
+            <TBODY>
+              <TR>
+                <TH SCOPE="rowgroup" HEADERS="t1-r1-l1">Seattle</TH>
+              </TR>
+              <TR>
+                <TD SCOPE="row" HEADERS="t1-r1-l2">&nbsp;27 Aug 97</TD>
+                <TD>96.25</TD>
+                <TD>109.00</TD>
+                <TD>36.00</TD>
+              </TR>
+              <TR>
+                <TD SCOPE="row" HEADERS="t1-r1-l2">&nbsp;28 Aug 97</TD>
+                <TD>35.00</TD>
+                <TD>109.00</TD>
+                <TD>36.00</TD>
+              </TR>
+              <TR>
+                <TD SCOPE="row">Subtotal</TD>
+                <TD>131.25</TD>
+                <TD>218.00</TD>
+                <TD>72.00</TD>
+                <TD>421.25</TD>
+              </TR>
+            </TBODY>
+            <TBODY>
+              <TR>
+                <TH SCOPE="row">Totals</TH>
+                <TD>196.27</TD>
+                <TD>442.00</TD>
+                <TD>162.00</TD>
+                <TD>800.27</TD>
+              </TR>
+            </TBODY>
+        </TABLE>
+
+        <h3>No usar las tablas para el diseño de la página web</h3>
+        <p>Para ello tenemos las hojas de estilo mediante el lenguaje CSS.</p>
+        
+        <h3>Si usamos tablas en diseño, usar etiquetas HTML para el diseño</h3>
+        <p>Como por ejemplo, el uso de las etiquetas div dentro de cada casilla
+        de la tabla para poder aplicar ahi los estilos CSS.</p>
+        
+        <h3>Incluir un resumen de la tabla en la etiqueta HTML</h3>
+        <p>Por ejemplo: </p>
+        <pre>
+            TABLE border="1" summary="This table charts the number of
+            cups of coffee consumed by each senator, 
+            the type of coffee (decaf or regular),
+            and whether taken with sugar.">
+            ... table markup ...
+        </pre>
+        
+        <h3>Especificar abreviaciones para las cabeceras</h3>
+        <p>Por ejemplo: </p>
+        <pre>
+            TH id="t3" abbr="Type">Type of Coffee/TH
+        </pre>
+        
+        <h3>Asegurarse de que el contenido de la página siga siendo legible sin hojas de estilo</h3>
+        <p>Por ejemplo, estableciendo la posición del texto en el propio documento CSS.</p>
+        <pre>
+            STYLE TYPE="text/css"
+
+                .part1{ color: red; font-size: 14pt;
+                padding-left: 0; margin-top: 40px;
+                font-family: copperplate gothic bold, fantasy, sans-serif }
+        </pre>
+        <p>De esta forma, estableceremos la posición del texto mediante las propiedades padding, margin ,etc.</p>
+        
+        <h3>Asegurarse de que el contenido sigue siendo accesible con scripts desactivados</h3>
+        <p>Puede ocurrir que algún navegador no soporte scripts, para ello se suele hacer que
+        los scripts no se ejecuten en el cliente, sino en el servidor, además de evitar usar links
+        que utilicen javascript, como por ejemplo "a href="javascript:" "</p>
+        
+        <h3>Scripts indepedendientes del dispositivo de entrada</h3>
+        <p>Es recomendable usar la etiqueta NOSCRIPT tras un script para que los navegadores que no los 
+        soporten, puedan mostrar al menos su funcionamiento.</p>
+        <script language="JavaScript" type="text/javascript">
+            function pop() { alert ("Premio!")  }
+        </script>
+        <button onfocus="pop()" onmouseover="pop()">Púlsame!</button>
+        <noscript>Premio!</noscript>
+        
+        <h3>Evitar usar el parpadeo de pantalla</h3>
+        <p>Es bastante importante para la gente que pueda sufrir de epilepsia fotosensible
+        que no se incluyan gifs que puedan causar este tipo de ataques a las personas. No podemos
+        poner un ejemplo pues estaríamos llevándonos la contraria.</p>
+
+        
+        <section id="7-3"> <!-- 7-2-->
+            <p>
+                Cuando se incluya contenido en movimiento, proporcionar un mecanismo que active y desactive la animacion.
+            </p>
+            <button >Activar animacion</button>
+            <div class="box">
+
+            </div>
+        </section>
+        <section id="7-4"> <!-- 7-2-->
+            <h3> No utilizar la actualizacion automatica de la pagina</h3>
+            <xmp> <META http-equiv="refresh" content="5"> </xmp>
+            <p> hasta que se permita desactivar al usuario la funcion.</p>
+
+        </section>
+        <section id="9-3">
+            <h3>Usar varios eventos que dependan de diferentes dispositivos para realizar la misma accion</h3>
+            <button onclick="alertar()" onkeypress="alertar()">Presiona</button>
+        </section>
+        <section id="9-4">
+            <h3>Usar el atributo 'tabindex'</h3>
+            <p>para establecer el orden de eleccion del elemento, presionando la tecla TAB. Funciona sobre elementos a, area, input, select, textarea, button.</p>
+            <p>O realizar el diseño ordenando los elementos acorde a su tabindex.</p>
+        </section>
+        <section id="9-5">
+            <h3>Hacer uso del atributo 'acceskey'</h3>
+            <p>en elementos a, input, textarea por ejemplo. Esto permitira selecionar estos elementos mediante la tecla indicada por 'acceskey' y la combinacion de teclas que varia segun el navegador.</p>
+        </section>
+
+        <section id="10-1">
+            <h3>Cuando se use links que abran una nueva pestaña avisar al usuario sobre ello. </h3>
+        </section>
+        <section id="10-2">
+            <h3>Proporcionar un elemento label informativo</h3>
+            <p>junto a cada elemento de un formulario (input, textarea...)</p>
+            <form >
+                [
+                <label for="name">Nombre</label>
+                <input type="text" name="name" value="">
+                |
+                <label for="email">Email</label>
+                <input type="text" name="email" value="">
+                ]
+            </form>
+        </section>
+        <section id="10-3">
+            <p>Para una correcta visualizacion del texto en los diferentes dispositivos (incluidos de lectura), proporcionar una alternativa de texto lineal.</p>
+        </section>
+        <section id="10-5">
+            <h3>Indicar el inicio y la finalizacion de enlaces con caracteres</h3>
+            <p>puede ayudar a personas que no puedan identificarlos correctamente.</p>
+            [ <a HREF="a.htm">Section A</a> | <a HREF="b.htm">Section B</a> | <a HREF="c.htm">Section C</a> | <a HREF="d.htm">Section D</a> | <a HREF="e.htm">Section E</a> ]
+        </section>
+        <section id="11-1">
+            <h3>Utilizar las versiones mas recientes de HTML cuando sean compatibles en los navegadores.</h3>
+        </section>
+        <!-- 12.1 12.2 FRAME no esta soportado en HTML5 -->
+        <section id="12.3">
+            <p>
+                Usar el elemento OPTGROUP para agrupar elementos OPTION dentro de un elemento SELECT.
+            </p>
+            <select>
+                <optgroup label="Swedish Cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                </optgroup>
+                <optgroup label="German Cars">
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </optgroup>
+            </select>
+            <p>Utilizar FIELDSET para agrupar elementos dentro de un formulario.</p>
+            <form>
+                <fieldset>
+                    <legend>Datos</legend>
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name"><br>
+                    <label for="email">Email</label>
+                    <input type="email" name="email"><br>
+                </fieldset>
+            </form>
+        </section>
+        
+        <section id="13-1">
+            <h3>Identificar de forma clara el objetivo del enlace</h3>
+            <p>
+                El texto del enlace debe difinir de forma clara cual será la accion a realizar.
+            </p>
+            <p><a href="#">Participa en el sorteo</a> de navidad</p>
+            <p>Es posible indicar también la descripcion del enlace en el atributo 'title' del elemento a</p>
+            <a href="next.htm" title="Descripcion del enlace">Ir a la siguiente página</a>
+            
+        </section>
+        <section id="13-3">
+            <h3>Proporcionar informacion sobre la estructura del contenido de la pagina</h3>
+            <p>Indicando la descripcion en el atributo title del elemento a para las personas ciegas.</p>
+            <div id="content-table">
+                <a href="#" title="level 1" class="level-1">Home</a>
+                <a href="#" title="level 2" class="level-2">Contacto</a>
+                <a href="#" title="level 2" class="level-2">Equipo</a>
+                <a href="#" title="level 3" class="level-3">Jimmy</a>
+                <a href="#" title="level 3" class="level-3">Fernando</a>
+            </div>
+        </section>
+        
+        <section id="13-7">
+            <h3>Proporcionar diferentes tipos de buscadores para diferentes tipos de habilidad y preferencias</h3>
+            <p>indicando una descripcion del funcionamiento del buscador.</p>
+        </section>
+        <section id="14-1">
+            <h3>Usar un lenguaje claro y simple apropiado al contenido de la pagina web</h3>
+        </section>
+        <section id="14-3">
+            <h3>Usar una estructura de diseño similar para todas las paginas web de la aplicacion</h3>
+            <img src="https://www.w3.org/WAI/wcag-curric/img/sl14-3a.gif"></img>
+            <img src="https://www.w3.org/WAI/wcag-curric/img/sl14-3b.gif"></img>
+        </section>
+        
+        
+        
+        
+        <!-- Carga de scripts -->
+        <script
+			  src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+        <script src="js/index.js"></script>
+        
+
+        
+    </body>
+</html>
